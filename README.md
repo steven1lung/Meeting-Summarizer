@@ -6,6 +6,7 @@
 $ python3 -m venv venv
 $ source venv/bin/activate
 $ pip install -r requirements.txt
+$ brew install ollama
 ```
 
 ## Download Vosk Library
@@ -19,6 +20,7 @@ Download this [Here](https://alphacephei.com/vosk/models/vosk-model-small-cn-0.2
 Once downloaded unzip in your project directory.
 
 ## Summarize a meeting
+Before using please make sure ollama is running.
 
 Video must be `.mp4` or `.mov`
 
@@ -35,7 +37,7 @@ $ python main.py --audio audioname.wav
 ## If you already have a transcript
 Save it to transcript.txt and run
 ```
-python llama.py
+$ python llama.py
 ```
 
 ## Language

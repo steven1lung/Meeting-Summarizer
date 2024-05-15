@@ -45,6 +45,7 @@ class Sharetape:
         if self.video != "":
             my_clip = mp.VideoFileClip(self.video)
             if my_clip.audio:
+                print("Extracting audio from video")
                 my_clip.audio.write_audiofile(self.audio, verbose=False, logger=None)
 
         # transcribe audio file

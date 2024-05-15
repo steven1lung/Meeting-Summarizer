@@ -59,6 +59,5 @@ websockets==11.0.3
 zope.interface==6.0
 moviepy==1.0.3
 ollama==0.2.0
-scipy==1.13.0
 srt==3.5.3
 vosk==0.3.44

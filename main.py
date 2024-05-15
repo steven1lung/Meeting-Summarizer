@@ -27,10 +27,10 @@ def main():
         if args.lang == "cn"
         else "vosk-model-en-us-0.42-gigaspeech"
     )
-    logging.info("sp2t setup")
+    print("Extracting transcript from video")
 
     video_id = str(uuid.uuid4())
-    os.makedirs(f"result/{video_id}")
+    os.makedirs(f"tmp/{video_id}")
 
     if args.audio != "":
         audio = args.audio
