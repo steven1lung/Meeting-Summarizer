@@ -1,4 +1,10 @@
 *.mp4
 *.mov
 *.wav
+__pycache__
+.DS_Store
 venv
+tmp
+medias
+vosk-model-en-us-0.42-gigaspeech
+vosk-model-small-cn-0.22

@@ -59,6 +59,8 @@ class Sharetape:
         with open(self.subtitles, "w+", encoding="utf8") as f:
             f.writelines(subtitle)
 
+        return str(transcript)
+
     def handle_speech_2_text(self):
         sample_rate, stereo_data = wav.read(self.audio)
 

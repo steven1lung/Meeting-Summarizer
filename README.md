@@ -1,6 +1,4 @@
-# Sharetape-Speech-To-Text
-
-Run speech to text for video for free. This outputs 3 files, 1 `words.json` file that has all of the words said along with their timing and confidence, 1 `transcript.txt` with just all the words read, and 1 `captions.srt` file which is the captions for that video.
+# Meeting Summarizer
 
 ## Install requirements
 
@@ -12,11 +10,15 @@ $ pip install -r requirements.txt
 
 ## Download Vosk Library
 
+### For English
 This is the language library this speech to text uses. Download this [Here](https://alphacephei.com/vosk/models/vosk-model-en-us-0.42-gigaspeech.zip)
+
+### For Chinese
+Download this [Here](https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip)
 
 Once downloaded unzip in your project directory.
 
-## Speech to text with video
+## Summarize a meeting
 
 Video must be `.mp4` or `.mov`
 
@@ -24,10 +26,20 @@ Video must be `.mp4` or `.mov`
 $ python main.py --video videoname.mp4
 ```
 
-## Speech to text with audio
-
-Video must be `.wav`
+Audio must be `.wav`
 
 ```
 $ python main.py --audio audioname.wav
+```
+
+## If you already have a transcript
+Save it to transcript.txt and run
+```
+python llama.py
+```
+
+## Language
+Use `--lang cn` for Chinese otherwise default is English
+```
+$ python main.py --video videoname.mp4 --lang cn
 ```
