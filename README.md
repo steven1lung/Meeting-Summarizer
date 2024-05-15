@@ -37,7 +37,7 @@ $ python main.py --audio audioname.wav
 ## If you already have a transcript
 Save it to transcript.txt and run
 ```
-$ python llama.py
+$ python main.py --transcript transcript.txt
 ```
 
 ## Language

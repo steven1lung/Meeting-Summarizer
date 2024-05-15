@@ -13,11 +13,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", "--video", type=str, required=False, default="")
     parser.add_argument("-a", "--audio", type=str, required=False, default="")
+    parser.add_argument("-t", "--transcript", type=str, required=False, default="")
     parser.add_argument("-l", "--lang", type=str, required=False, default="en")
     args = parser.parse_args()
 
-    if not (args.video or args.audio):
-        parser.error("No action requested, add --video or --audio")
+    if not (args.video or args.audio or args.transcript):
+        parser.error("No action requested, add --video, --audio or --transcript")
+    if args.transcript:
+        with open(args.transcript, "r") as f:
+            print(llama.summarize(f.read()))
+            return
     elif args.video and args.audio:
         parser.error("Only select one action --video or --audio")
 
