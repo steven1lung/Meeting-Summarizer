@@ -9,16 +9,6 @@ $ pip install -r requirements.txt
 $ brew install ollama
 ```
 
-## Download Vosk Library
-
-### For English
-This is the language library this speech to text uses. Download this [Here](https://alphacephei.com/vosk/models/vosk-model-en-us-0.42-gigaspeech.zip)
-
-### For Chinese
-Download this [Here](https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip)
-
-Once downloaded unzip in your project directory.
-
 ## Summarize a meeting
 Before using please make sure ollama is running.
 

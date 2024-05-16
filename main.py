@@ -2,11 +2,26 @@ import argparse
 import logging
 import os
 import uuid
+import zipfile
 
+import requests
 from vosk import Model, SetLogLevel
 
 import llama
 from sharetape import Sharetape
+
+CN_MODEL = "vosk-model-small-cn-0.22"
+EN_MODEL = "vosk-model-en-us-0.42-gigaspeech"
+
+
+def download_model(model_url, model_path):
+    response = requests.get(model_url, stream=True)
+    response.raise_for_status()
+    with open(model_path, "wb") as f:
+        for chunk in response.iter_content(chunk_size=8192):
+            f.write(chunk)
+    with zipfile.ZipFile(model_path, "r") as zip_ref:
+        zip_ref.extractall(os.path.dirname(model_path))
 
 
 def main():
@@ -27,11 +42,21 @@ def main():
         parser.error("Only select one action --video or --audio")
 
     SetLogLevel(-1)
-    model = Model(
-        model_path="vosk-model-small-cn-0.22"
-        if args.lang == "cn"
-        else "vosk-model-en-us-0.42-gigaspeech"
-    )
+
+    model_name = CN_MODEL if args.lang == "cn" else EN_MODEL
+    if not os.path.exists(model_name):
+        confirm = input(
+            f"Model not found at {model_name}. Do you want to download it? (y/n): "
+        )
+        if confirm.lower() == "y":
+            print("Downloading...")
+            model_url = f"https://alphacephei.com/vosk/models/{model_name}.zip"
+            download_model(model_url, model_name)
+        else:
+            print("Download cancelled.")
+            return
+
+    model = Model(model_name)
     print("Extracting transcript from video")
 
     video_id = str(uuid.uuid4())
