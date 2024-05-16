@@ -10,7 +10,7 @@ from vosk import Model, SetLogLevel
 import llama
 from sharetape import Sharetape
 
-CN_MODEL = "vosk-model-small-cn-0.22"
+CN_MODEL = "vosk-model-cn-0.22"
 EN_MODEL = "vosk-model-en-us-0.42-gigaspeech"
 
 
