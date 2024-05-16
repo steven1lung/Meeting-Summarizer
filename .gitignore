@@ -6,5 +6,8 @@ __pycache__
 venv
 tmp
 medias
+transcript.txt
 vosk-model-en-us-0.42-gigaspeech
-vosk-model-small-cn-0.22
+vosk-model-en-us-0.42-gigaspeech.zip
+vosk-model-cn-0.22
+vosk-model-cn-0.222.zip

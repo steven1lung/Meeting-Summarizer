@@ -77,7 +77,10 @@ def main():
         model,
     )
     transcript = shartape.extract_transcript()
-    print(llama.summarize(transcript))
+    try:
+        print(llama.summarize(transcript))
+    except Exception as e:
+        print("Error summarizing transcript, please make sure you have ollama running")
 
 
 if __name__ == "__main__":
